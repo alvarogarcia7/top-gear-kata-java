@@ -1,5 +1,8 @@
 package com.lagerweij;
 
+import java.util.Arrays;
+
+import com.lagerweij.GearBox.GearBoxScheme;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,6 +25,19 @@ public class GearBoxTest {
         shiftUpTo(5);
         shiftUpTo(6);
         shiftUpTo(6);
+    }
+
+    @Test
+    public void use_the_custom_scheme() {
+        final TestableGearBox gearBox1 = new TestableGearBox(new GearBox(Arrays.asList(new GearBoxScheme(100, 150), new GearBoxScheme(100, 150))));
+        gearBox1.doit(0);
+        assertThat(gearBox1.getGear(), Is.is(1));
+        gearBox1.doit(160);
+        assertThat(gearBox1.getGear(), Is.is(2));
+        gearBox1.doit(160);
+        assertThat(gearBox1.getGear(), Is.is(3));
+        gearBox1.doit(160);
+        assertThat(gearBox1.getGear(), Is.is(3));
     }
 
     @Test
