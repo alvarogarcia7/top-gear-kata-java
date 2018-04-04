@@ -48,12 +48,6 @@ public class GearBoxTest {
         shiftUpToThenDescendOneTo(6);
     }
 
-    private void shiftUpToThenDescendOneTo(int gearNumber) {
-        final TestableGearBox gearBox = gearBoxReadingGear(gearNumber + 1);
-        shiftDown(gearBox, 1);
-        assertThat(gearBox.getGear(), Is.is(gearNumber));
-    }
-
     @Test
     public void cannot_shift_up_from_the_uppest_gear() {
         final TestableGearBox gearBox = gearBoxReadingGear(6);
@@ -61,6 +55,12 @@ public class GearBoxTest {
         assertThat(gear, Is.is(6));
         shiftUp(gearBox, 1);
         assertThat(gear, Is.is(6));
+    }
+
+    private void shiftUpToThenDescendOneTo(int gearNumber) {
+        final TestableGearBox gearBox = gearBoxReadingGear(gearNumber + 1);
+        shiftDown(gearBox, 1);
+        assertThat(gearBox.getGear(), Is.is(gearNumber));
     }
 
     private void stayIn(int gearNumber) {
