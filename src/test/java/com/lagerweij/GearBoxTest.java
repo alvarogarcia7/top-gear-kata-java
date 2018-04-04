@@ -15,10 +15,19 @@ public class GearBoxTest {
 
     @Test
     public void over_the_upper_bound_it_shifts_gear_up() {
+        shiftTo(1);
+        shiftTo(2);
+        shiftTo(3);
+        shiftTo(4);
+        shiftTo(5);
+        shiftTo(6);
+    }
+
+    private void shiftTo(int gearNumber) {
         final TestableGearBox gearBox = new TestableGearBox();
-        shiftUp(gearBox, 1);
+        shiftUp(gearBox, gearNumber);
         final int gear = gearBox.getGear();
-        assertThat(gear, Is.is(1));
+        assertThat(gear, Is.is(gearNumber));
     }
 
     private void shiftUp(TestableGearBox gearBox, int times) {
