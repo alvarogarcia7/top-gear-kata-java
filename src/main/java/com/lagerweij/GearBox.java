@@ -37,9 +37,7 @@ public class GearBox {
 				}
 			}
 		}
-		if (this.gear > 6) {
-			this.gear--;
-		} else if (this.gear < 1) {
+		if (this.gear < 1) {
 			this.gear++;
 		}
 	}
