@@ -21,6 +21,17 @@ public class GearBoxTest {
         shiftTo(4);
         shiftTo(5);
         shiftTo(6);
+        shiftTo(6);
+    }
+
+    @Test
+    public void cannot_shift_up_from_the_uppest_gear() {
+        final TestableGearBox gearBox = new TestableGearBox();
+        shiftUp(gearBox, 6);
+        final int gear = gearBox.getGear();
+        assertThat(gear, Is.is(6));
+        shiftUp(gearBox, 1);
+        assertThat(gear, Is.is(6));
     }
 
     private void shiftTo(int gearNumber) {
