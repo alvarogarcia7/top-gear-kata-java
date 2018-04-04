@@ -26,14 +26,12 @@ package com.lagerweij;
 public class GearBox {
 
 	private int s = 0;
-	private int e = 0;
 	private final int UPPER_BOUND_RPM = 2000;
 	private final int LOWER_BOUND_RPM = 500;
 
 	public void doit(int i) {
 		if (this.s < 0) {
 			// do nothing!
-			this.e = i;
 		} else {
 			if (this.s > 0) {
 				if (i > this.UPPER_BOUND_RPM)
@@ -49,6 +47,5 @@ public class GearBox {
 		} else if (this.s < 1) {
 			this.s++;
 		}
-		this.e = i;
-		}
+	}
 }
