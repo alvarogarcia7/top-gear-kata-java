@@ -6,7 +6,7 @@ import org.junit.Test;
 public class GearBoxTest {
 
     @Test
-    public void testNothing() {
+    public void canary_test() {
         Assert.assertTrue(true);
     }
 }
