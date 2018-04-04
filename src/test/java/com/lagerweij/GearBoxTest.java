@@ -75,7 +75,7 @@ public class GearBoxTest {
     }
 
     private TestableGearBox gearBoxReadingGear(int gearNumber) {
-        final TestableGearBox gearBox = new TestableGearBox();
+        final TestableGearBox gearBox = TestableGearBox.aNew();
         shiftUp(gearBox, gearNumber);
         return gearBox;
     }

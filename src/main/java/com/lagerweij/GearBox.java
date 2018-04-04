@@ -28,10 +28,18 @@ import java.util.List;
 
 public class GearBox {
 
-    List<GearBoxScheme> gearBoxSchemeList =
-            Arrays.asList(new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000),
-                    new GearBoxScheme(500, 2000));
+    List<GearBoxScheme> gearBoxSchemeList;
     protected int gear = 0;
+
+    public GearBox(List<GearBoxScheme> gearBoxSchemeList) {
+        this.gearBoxSchemeList = gearBoxSchemeList;
+    }
+
+    public static GearBox aNew() {
+        return new GearBox(
+                Arrays.asList(new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000),
+                        new GearBoxScheme(500, 2000)));
+    }
 
     public void doit(int rpm) {
         if (this.gear == 0) {
@@ -48,7 +56,7 @@ public class GearBox {
         }
     }
 
-    private class GearBoxScheme {
+    public static class GearBoxScheme {
         private final int lowerRpm;
         private final int maxRpm;
 
