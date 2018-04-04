@@ -31,8 +31,9 @@ public class GearBox {
 
 	public void doit(int i) {
 		if (this.gear > 0) {
-			if (i > this.UPPER_BOUND_RPM)
+			if (i > this.UPPER_BOUND_RPM) {
 				this.gear++;
+			}
 		} else if (this.gear == 0) {
 			if (i < this.LOWER_BOUND_RPM) {
 				this.gear--;
