@@ -17,8 +17,8 @@ public class GearBoxTest {
     public void over_the_upper_bound_it_shifts_gear_up() {
         final TestableGearBox gearBox = new TestableGearBox();
         shiftUp(gearBox, 1);
-        final int s = gearBox.getS();
-        assertThat(s, Is.is(1));
+        final int gear = gearBox.getGear();
+        assertThat(gear, Is.is(1));
     }
 
     private void shiftUp(TestableGearBox gearBox, int times) {

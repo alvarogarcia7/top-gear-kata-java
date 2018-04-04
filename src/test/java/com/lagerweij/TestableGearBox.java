@@ -1,7 +1,7 @@
 package com.lagerweij;
 
 public class TestableGearBox extends GearBox {
-    public int getS() {
-        return this.s;
+    public int getGear() {
+        return this.gear;
     }
 }
