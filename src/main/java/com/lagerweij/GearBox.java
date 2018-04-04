@@ -30,7 +30,13 @@ public class GearBox {
 	private final int LOWER_BOUND_RPM = 500;
 
 	public void doit(int rpm) {
-		if (this.gear > 0 && this.gear < 6) {
+		if (this.gear == 0) {
+			this.gear++;
+			return;
+		}
+		if (this.gear >= 6) {
+			return;
+		} else {
 			if (rpm > this.UPPER_BOUND_RPM) {
 				this.gear++;
 			}
