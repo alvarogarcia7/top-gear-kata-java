@@ -25,7 +25,7 @@ package com.lagerweij;
 
 public class GearBox {
 
-	private int s = 0;
+	protected int s = 0;
 	private final int UPPER_BOUND_RPM = 2000;
 	private final int LOWER_BOUND_RPM = 500;
 
@@ -39,7 +39,7 @@ public class GearBox {
 					this.s--;
 				}
 			}
-		}  
+		}
 		if (this.s > 6) {
 			this.s--;
 		} else if (this.s < 1) {
