@@ -31,22 +31,11 @@ public class GearBox {
 
 	public void doit(int i) {
 		if (this.gear > 0) {
-			if (this.gear > 0) {
-				if (i > this.UPPER_BOUND_RPM)
-					this.gear++;
-			} else {
-				if (i < this.LOWER_BOUND_RPM) {
-					this.gear--;
-				}
-			}
+			if (i > this.UPPER_BOUND_RPM)
+				this.gear++;
 		} else if (this.gear == 0) {
-			if (this.gear > 0) {
-				if (i > this.UPPER_BOUND_RPM)
-					this.gear++;
-			} else {
-				if (i < this.LOWER_BOUND_RPM) {
-					this.gear--;
-				}
+			if (i < this.LOWER_BOUND_RPM) {
+				this.gear--;
 			}
 		}
 		if (this.gear > 6) {
