@@ -26,6 +26,17 @@ public class GearBoxTest {
     }
 
     @Test
+    public void staying_within_the_rpm_limit_does_not_change_gears() {
+        stayIn(1);
+        stayIn(2);
+        stayIn(3);
+        stayIn(4);
+        stayIn(5);
+        stayIn(6);
+        stayIn(6);
+    }
+
+    @Test
     @Ignore("Discuss with business whether it should shift down or not")
     public void below_the_lower_bound_it_shifts_gear_down() {
         shiftUpToThenDescendOneTo(1);
@@ -52,6 +63,13 @@ public class GearBoxTest {
         assertThat(gear, Is.is(6));
     }
 
+    private void stayIn(int gearNumber) {
+        final TestableGearBox gearBox = gearBoxReadingGear(gearNumber);
+        inTheThreshold(gearBox);
+        final int gear = gearBox.getGear();
+        assertThat(gear, Is.is(gearNumber));
+    }
+
     private void shiftUpTo(int gearNumber) {
         final TestableGearBox gearBox = gearBoxReadingGear(gearNumber);
         final int gear = gearBox.getGear();
@@ -68,6 +86,10 @@ public class GearBoxTest {
         for (int i = 0; i < times; i++) {
             gearBox.doit(2500);
         }
+    }
+
+    private void inTheThreshold(TestableGearBox gearBox) {
+        gearBox.doit(600);
     }
 
     private void shiftDown(TestableGearBox gearBox, int times) {
