@@ -32,8 +32,6 @@ public class GearBox {
             Arrays.asList(new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000),
                     new GearBoxScheme(500, 2000));
     protected int gear = 0;
-    private final int UPPER_BOUND_RPM = 2000;
-    private final int LOWER_BOUND_RPM = 500;
 
     public void doit(int rpm) {
         if (this.gear == 0) {
