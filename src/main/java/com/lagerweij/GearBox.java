@@ -40,8 +40,5 @@ public class GearBox {
 		if (rpm > this.UPPER_BOUND_RPM) {
 			this.gear++;
 		}
-		if (this.gear < 1) {
-			this.gear++;
-		}
 	}
 }
