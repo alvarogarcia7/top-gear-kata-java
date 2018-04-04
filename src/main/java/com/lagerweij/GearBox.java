@@ -23,8 +23,14 @@
 
 package com.lagerweij;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class GearBox {
 
+    List<GearBoxScheme> gearBoxSchemeList =
+            Arrays.asList(new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000), new GearBoxScheme(500, 2000),
+                    new GearBoxScheme(500, 2000));
     protected int gear = 0;
     private final int UPPER_BOUND_RPM = 2000;
     private final int LOWER_BOUND_RPM = 500;
@@ -41,6 +47,16 @@ public class GearBox {
             this.gear++;
         } else if (rpm < this.LOWER_BOUND_RPM) {
             this.gear--;
+        }
+    }
+
+    private class GearBoxScheme {
+        private final int lowerRpm;
+        private final int maxRpm;
+
+        public GearBoxScheme(int lowerRpm, int maxRpm) {
+            this.lowerRpm = lowerRpm;
+            this.maxRpm = maxRpm;
         }
     }
 }
