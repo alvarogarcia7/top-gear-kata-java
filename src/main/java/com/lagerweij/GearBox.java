@@ -27,23 +27,28 @@ public class GearBox {
 
 	private int s = 0;
 	private int e = 0;
+	private final int UPPER_BOUND_RPM = 2000;
+	private final int LOWER_BOUND_RPM = 500;
 
 	public void doit(int i) {
-		if (s < 0) {
+		if (this.s < 0) {
 			// do nothing!
-			e = i;
+			this.e = i;
 		} else {
-			if (s > 0) {
-				if (i > 2000)
-					s++;
-				} else if (i < 500) {
-					s--;
+			if (this.s > 0) {
+				if (i > this.UPPER_BOUND_RPM)
+					this.s++;
+			} else {
+				if (i < this.LOWER_BOUND_RPM) {
+					this.s--;
 				}
-			} if (s > 6) {
-				s--;
-			} else if (s < 1) {
-				s++;
 			}
-			e = i;
+		}
+		if (this.s > 6) {
+			this.s--;
+		} else if (this.s < 1) {
+			this.s++;
+		}
+		this.e = i;
 		}
 }
