@@ -40,12 +40,12 @@ public class GearBox {
             this.gear++;
             return;
         }
-        if (this.gear > 6) {
+        if (this.gear > this.gearBoxSchemeList.size()) {
             return;
         }
-        if (rpm > this.UPPER_BOUND_RPM) {
+        if (rpm > this.gearBoxSchemeList.get(this.gear - 1).maxRpm) {
             this.gear++;
-        } else if (rpm < this.LOWER_BOUND_RPM) {
+        } else if (rpm < this.gearBoxSchemeList.get(this.gear - 1).lowerRpm) {
             this.gear--;
         }
     }
