@@ -34,11 +34,13 @@ public class GearBox {
             this.gear++;
             return;
         }
-        if (this.gear >= 6) {
+        if (this.gear > 6) {
             return;
         }
         if (rpm > this.UPPER_BOUND_RPM) {
             this.gear++;
+        } else if (rpm < this.LOWER_BOUND_RPM) {
+            this.gear--;
         }
     }
 }

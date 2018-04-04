@@ -2,7 +2,6 @@ package com.lagerweij;
 
 import org.hamcrest.core.Is;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
@@ -37,15 +36,13 @@ public class GearBoxTest {
     }
 
     @Test
-    @Ignore("Discuss with business whether it should shift down or not")
     public void below_the_lower_bound_it_shifts_gear_down() {
-        shiftUpToThenDescendOneTo(1);
-        shiftUpToThenDescendOneTo(2);
-        shiftUpToThenDescendOneTo(3);
-        shiftUpToThenDescendOneTo(4);
-        shiftUpToThenDescendOneTo(5);
-        shiftUpToThenDescendOneTo(6);
-        shiftUpToThenDescendOneTo(6);
+        shiftUpToThenDescendOne(1);
+        shiftUpToThenDescendOne(2);
+        shiftUpToThenDescendOne(3);
+        shiftUpToThenDescendOne(4);
+        shiftUpToThenDescendOne(5);
+        shiftUpToThenDescendOne(6);
     }
 
     @Test
@@ -57,10 +54,11 @@ public class GearBoxTest {
         assertThat(gear, Is.is(6));
     }
 
-    private void shiftUpToThenDescendOneTo(int gearNumber) {
-        final TestableGearBox gearBox = gearBoxReadingGear(gearNumber + 1);
+    private void shiftUpToThenDescendOne(int gearNumber) {
+        final TestableGearBox gearBox = gearBoxReadingGear(gearNumber);
+        System.out.println(gearBox.gear);
         shiftDown(gearBox, 1);
-        assertThat(gearBox.getGear(), Is.is(gearNumber));
+        assertThat(gearBox.getGear(), Is.is(gearNumber - 1));
     }
 
     private void stayIn(int gearNumber) {
